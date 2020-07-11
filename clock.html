@@ -4,78 +4,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,400,600,900&amp;subset=latin-ext" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
-<style>
-    
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #000;
-}
-#clock{
-    font-family: 'Orbitron', sans-serif;
-    font-size: 5rem;
-    color: #32cd32;
-}
-
-
-</style>
+<link href="./style.css" rel="stylesheet">
 </head>
 <body>
 
-<div id="clock"></div>
+    <div id="clock"></div>
 
-
-<script>
-function showTime(){
-
-    let date = new Date();
-    let hours = date.getHours();
-    let minutes = date.getMinutes();
-    let seconds = date.getSeconds();
-
-    let formats = convertFormat(hours);
-
-    hours = checkTime(hours);
-
-    hours = addZero(hours);
-    minutes = addZero(minutes);
-    seconds = addZero(seconds);
-
-    document.getElementById('clock').innerHTML = `${hours} : ${minutes} : ${seconds} ${formats}`;
-}
-function convertFormat(time){
-    let format = 'AM';
-    if(time >= 12){
-        format = 'PM'
-    }
-    return format;
-}
-function checkTime(time){
-    if(time > 12){
-        time = time - 12;
-    }
-    if(time === 0){
-        time = 12;
-    }
-    return time;
-}
-function addZero(time) {
-    if(time < 10) {
-        time = "0" + time;
-    }
-    return time;
-}
-
-setInterval(showTime, 1000);
-
-</script>
+    <script src="./script.js"></script>
 </body>
 </html>
